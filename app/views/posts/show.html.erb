@@ -1,0 +1,18 @@
+<table>
+	<tr>
+		<td><h2><%= @post.titulo %></h2></td>
+	</tr>	
+	<tr>
+		<td><%= @post.corpo %></td>
+	</tr>	
+	<tr>
+		<td><i><%= "Autor: @post.user.profile.nome - Data: #{@post.created_at}" %></i></td>
+	</tr>	
+	<tr>
+		<td>
+			<%= link_to "Voltar", root_path %> |
+			<%= link_to "Editar", edit_post_path(@post.id) %> | 
+			<%= link_to "Remover", post_path(@post.id), :confirm => 'Deseja realmente remover esse post?', :method => :delete %></td>
+		</td>
+	</tr>
+</table>

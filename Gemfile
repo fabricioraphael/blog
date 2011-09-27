@@ -1,0 +1,15 @@
+source 'http://rubygems.org'
+
+gem 'rails', '3.0.9'
+
+group :test, :development do       
+  gem 'rspec-rails', '~> 2.4.0'
+end
+
+gem "devise", "~> 1.4.7"
+
+gem 'pg'
+
+
+# Bundle edge Rails instead:
+# gem 'rails', :git => 'git://github.com/rails/rails.git'

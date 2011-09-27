@@ -1,0 +1,15 @@
+<%= form_for @post, :url => {:action => action_name}, :id => :new_post do |p| %>
+	<table >
+		<tr>
+		 	<td><%= p.label :titulo %></td>
+		 	<td><%= p.text_field :titulo, :id => "titulo" %></td>
+		</tr>
+		<tr>
+			<td><%= p.label :corpo %> </td>
+			<td><%= p.text_area :corpo, :id => "corpo" %> </td>
+		</tr> 	
+		<tr>
+			<td><%= submit_tag submit_name %></td>
+		</tr>
+	</table>
+<% end %>

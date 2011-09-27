@@ -1,0 +1,9 @@
+<tr>
+	<td><h2><%= link_to post.titulo, post_path(post.id)%></h2></td>
+</tr>	
+<tr>
+	<td><%= post.corpo %></td>
+</tr>	
+<tr>
+	<td><%= "Autor: post.user.profile.nome - Data: #{post.created_at}" %></td>
+</tr>

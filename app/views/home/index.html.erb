@@ -1,0 +1,8 @@
+<% unless @posts.nil? %>
+<table>
+	<%= render :partial => "post", :collection => @posts.reverse %>		
+</table>
+	<% if user_signed_in? %>
+		<%= link_to "Novo Post", new_post_path %>
+	<% end %>
+<% end %>
