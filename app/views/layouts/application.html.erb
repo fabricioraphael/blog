@@ -15,6 +15,7 @@
 		<% if user_signed_in? %>
 			<ul>
 				Usuário: <%= link_to current_user.email, '#' %> | 
+					<%= link_to "Novo Post", new_post_path %> | 
 				<%= link_to "Sair", destroy_user_session_path, :method => :delete %>
 			</ul>		 
 		<% end %>

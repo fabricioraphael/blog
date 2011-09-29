@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :post
-  has_one :profile
+  has_one :profile, :dependent => :destroy
+  has_many :respostas, :through => :posts, :source => :comentarios
   
   devise :database_authenticatable, #:registerable,
          :recoverable, :rememberable, :trackable, :validatable
