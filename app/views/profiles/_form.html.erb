@@ -1,0 +1,28 @@
+<h2>Register - Step 2</h2>
+
+<%= form_for @profile, :url => {:action => action_name}, :id => :new_profile do |p| %>
+	<table>
+		<tr>
+	  	<td><%= p.label :nome %></td>
+	  	<td><%= p.text_field :nome %></td>
+		</tr>
+		<tr>
+	  	<td><%= p.label :nascimento %></td>
+	 		<td><%= p.text_field :nascimento %></td>
+		</tr>
+		<tr>
+	  	<td><%= p.label :endereco %></td>
+	  	<td><%= p.text_field :endereco %></td>
+		</tr>
+		<tr>
+	  	<td><%= p.label :web_site %></td>
+	  	<td><%= p.text_field :web_site %></td>
+		</tr>
+		<tr>
+	  	<td><%= p.label :bio %></td>
+	  	<td><%= p.text_area :bio %></td>
+		</tr>
+		<tr>
+	  	<td> </td><td><%= p.submit "Salvar" %></td>
+	</table>
+<% end %>

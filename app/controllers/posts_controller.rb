@@ -8,7 +8,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new params[:post]
     @post.user = current_user
-    p "===================== #{current_user.id} -- #{@post.user} -- "
+
     if @post.save
       redirect_to :controller => :home, :action => :index
     else

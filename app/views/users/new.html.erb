@@ -1,0 +1,21 @@
+<h2>Register - Step 1</h2>
+
+<%= form_for(@user, :url => {:action => :create}, :html => {:autocomplete => "off" }) do |u| %>
+  <table>
+		<tr>
+			<td><%= u.label :email %></td>
+		  <td><%= u.email_field :email %></td>
+		</tr>
+		<tr>
+		  <td><%= u.label :password %></td>
+		  <td><%= u.password_field :password %></td>
+		</tr>
+		<tr>
+		  <td><%= u.label :password_confirmation %></td>
+		  <td><%= u.password_field :password_confirmation %></td>
+		</tr>
+		<tr>
+		  <td> </td><td><%= u.submit "Salvar" %></td>
+	</table>
+<% end %>
+
