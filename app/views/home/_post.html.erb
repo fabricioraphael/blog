@@ -6,7 +6,7 @@
 </tr>	
 <tr>
 	<% unless post.user.profile.nil? %>
-		<td><%= "Autor: #{post.user.profile.nome} - Data: #{post.created_at}" %></td>
+		<td>Autor: <%= link_to "#{post.user.profile.nome}", profile_path(post.user.profile.id) %> <%=" - Data: #{post.created_at}" %></td>
 	<% else %>
 		<td><%= "Autor: Não Identificado - Data: #{post.created_at}" %></td>
 	<% end %>

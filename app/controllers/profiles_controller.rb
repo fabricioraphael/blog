@@ -19,4 +19,22 @@ class ProfilesController < ApplicationController
       render :action => :new
     end
   end
+  
+  def edit
+    @profile = Profile.find params[:id]
+  end
+  
+  def update
+    @profile = Profile.find params[:id]
+    if @profile.update_attributes params[:profile]
+      redirect_to :controller => :home, :action => :index
+    else
+      render :action => :edit
+    end
+  end
+  
+  def show
+    @profile = Profile.find params[:id]
+    @posts = @profile.user.posts
+  end
 end

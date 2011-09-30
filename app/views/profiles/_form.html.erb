@@ -1,4 +1,4 @@
-<h2>Register - Step 2</h2>
+<h2><%= titulo %></h2>
 
 <%= form_for @profile, :url => {:action => action_name}, :id => :new_profile do |p| %>
 	<table>
@@ -23,6 +23,6 @@
 	  	<td><%= p.text_area :bio %></td>
 		</tr>
 		<tr>
-	  	<td> </td><td><%= p.submit "Salvar" %></td>
+	  	<td> </td><td><%= p.submit submit_name %></td>
 	</table>
 <% end %>

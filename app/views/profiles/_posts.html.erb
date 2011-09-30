@@ -1,0 +1,5 @@
+<tr>
+	<td><%= link_to "#{posts.titulo}", post_path(posts.id) %></td>
+	<td><%= posts.created_at %></td>
+	<td><%= posts.comentarios.size %></td>
+</tr>

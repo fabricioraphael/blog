@@ -1,0 +1,31 @@
+<h1>Dados do Perfil</h1>
+<table>
+	<tr>
+		<th>Nome: </th>
+		<td><%= @profile.nome %></td>
+	</tr>	
+	<tr>
+		<th>E-mail: </th>
+		<td><%= @profile.user.email %></td>
+	</tr>	
+	<tr>
+		<th>Web-Site: </th>
+		<td><%= link_to "#{@profile.web_site}", '#' %></td>
+	</tr>	
+	<tr>
+		<th>Bio: </th>
+		<td><%= @profile.bio %></td>
+	</tr>	
+	<% unless @posts.nil? %>
+		<table border="1">
+			<tr>
+				<th>Titulo</th>
+				<th>Data</th>
+				<th>Comentários</th>
+
+			</tr>
+			<%= render :partial => "posts", :collection => @posts %>		
+		</table>
+	<% end %>
+</table>
+
