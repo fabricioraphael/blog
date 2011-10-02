@@ -1,7 +1,7 @@
 <p><%= comentario.corpo %></p>
 <% if comentario.user %>
 	<% unless comentario.user.profile.nil? %>
-	<i>Autor: <%= link_to "#{comentario.user.profile.nome}", profile_path(comentario.user.profile.id) %> <%=" - Data: #{comentario.created_at}" %></i>
+		<i>Autor: <%= link_to "#{comentario.user.profile.nome}", profile_path(comentario.user.profile.id) %> <%=" - Data: #{comentario.created_at}" %></i>
 	<% else %>
 		<i><%= "Autor: Não Identificado - Data: #{comentario.created_at}" %></i>
 	<% end %>

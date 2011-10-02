@@ -8,6 +8,8 @@ end
 
 gem "devise", "~> 1.4.7"
 
+gem 'will_paginate', '~> 3.0.pre4'
+
 gem 'pg'
 
 

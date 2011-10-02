@@ -4,4 +4,5 @@ class Post < ActiveRecord::Base
   has_many :comentarios
   
   validates_presence_of :titulo, :corpo
+
 end
