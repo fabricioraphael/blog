@@ -7,16 +7,33 @@
 	</tr>	
 	<tr>
 		<% unless @post.user.profile.nil? %>
-			<td><i><%= "Autor: #{@post.user.profile.nome} - Data: #{@post.created_at}" %></i></td>
+		<td><i>Autor: <%= link_to "#{@post.user.profile.nome}", profile_path(@post.user.profile.id) %> <%=" - Data: #{@post.created_at}" %></i></td>
 		<% else %>
 			<td><i><%= "Autor: Não Identificado - Data: #{@post.created_at}" %></i></td>
 		<% end %>
 	</tr>	
 	<tr>
 		<td>
-			<%= link_to "Voltar", root_path %> |
 			<%= link_to "Editar", edit_post_path(@post.id) %> | 
 			<%= link_to "Remover", post_path(@post.id), :confirm => 'Deseja realmente remover esse post?', :method => :delete %></td>
 		</td>
+	</tr>
+	<tr>
+		<td><hr /></td>
+	</tr>
+	<tr>
+		<td><b>Comentarios</b></td>
+	</tr>
+	<tr>
+		<td><%= render :partial => "comentarios/comentario", :collection => @post.comentarios.reverse %></td>
+	</tr>
+	<tr>
+		<td><hr /></td>
+	</tr>
+	<tr>
+		<td><h2>Add Comentario:</h2></td>
+	</tr>
+	<tr>
+		<td><%= render :partial => "comentarios/form", :locals => {:action_name => :create, :submit_name => "Comentar", :post_id => @post.id} %><td>
 	</tr>
 </table>

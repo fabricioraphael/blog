@@ -12,15 +12,14 @@
 		<%= link_to "Login", new_user_session_path %> |
 		<%= link_to "Register", new_user_path %>
 		
-		<% if user_signed_in? %>
+		<% if user_signed_in? and current_user.profile %>
 			<ul>
-				Usuário: <%= link_to current_user.email, profile_path(current_user.profile.id) %> | 
+					Usuário: <%= link_to current_user.email, profile_path(current_user.profile.id) %> |
 					<%= link_to "Editar Perfil", edit_profile_path(current_user.profile.id) %> | 
+				<% end %> 
 					<%= link_to "Novo Post", new_post_path %> | 
 					<%= link_to "Sair", destroy_user_session_path, :method => :delete %>
 			</ul>		 
-		<% end %>
-
 		<%= yield %>
 	</center>
 </body>

@@ -1,0 +1,6 @@
+<%= form_for @comentario, :url => {:controller => :comentarios, :action => action_name, :post_id => post_id}, :id => :new_comentario do |c| %>
+    <%= c.label "Comentario: " %><br />
+    <%= c.text_area :corpo %><br />
+
+    <%= submit_tag  submit_name %>
+<% end %>

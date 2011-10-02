@@ -5,9 +5,11 @@
 	<td><%= post.corpo %></td>
 </tr>	
 <tr>
-	<% unless post.user.profile.nil? %>
-		<td>Autor: <%= link_to "#{post.user.profile.nome}", profile_path(post.user.profile.id) %> <%=" - Data: #{post.created_at}" %></td>
-	<% else %>
-		<td><%= "Autor: Não Identificado - Data: #{post.created_at}" %></td>
+	<% if post.user %>
+		<% unless post.user.profile.nil? %>
+			<td><i>Autor: <%= link_to "#{post.user.profile.nome}", profile_path(post.user.profile.id) %> <%=" - Data: #{post.created_at}" %></i></td>
+		<% else %>
+			<td><%= "Autor: Não Identificado - Data: #{post.created_at}" %></td>
+		<% end %>
 	<% end %>
 </tr>

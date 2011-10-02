@@ -14,6 +14,8 @@ class UsersController < ApplicationController
      @user = User.new params[:user]
      
      if @user.save
+       @user.profile = Profile.new
+       p "===================== @user.profile.nil? =========================#{@user.profile.nil?}"
         sign_in @user
         redirect_to :controller => :profiles, :action => :new
      else
