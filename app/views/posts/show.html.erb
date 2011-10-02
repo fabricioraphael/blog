@@ -6,10 +6,12 @@
 		<td><%= @post.corpo %></td>
 	</tr>	
 	<tr>
-		<% unless @post.user.profile.nil? %>
-		<td><i>Autor: <%= link_to "#{@post.user.profile.nome}", profile_path(@post.user.profile.id) %> <%=" - Data: #{@post.created_at}" %></i></td>
-		<% else %>
-			<td><i><%= "Autor: Não Identificado - Data: #{@post.created_at}" %></i></td>
+		<% if @post.user %>
+			<% unless @post.user.profile.nil? %>
+			<td><i>Autor: <%= link_to "#{@post.user.profile.nome}", profile_path(@post.user.profile.id) %> <%=" - Data: #{@post.created_at}" %></i></td>
+			<% else %>
+				<td><i><%= "Autor: Não Identificado - Data: #{@post.created_at}" %></i></td>
+			<% end %>
 		<% end %>
 	</tr>	
 	<tr>
@@ -21,15 +23,14 @@
 	<tr>
 		<td><hr /></td>
 	</tr>
-	<tr>
-		<td><b>Comentarios</b></td>
-	</tr>
-	<tr>
-		<td><%= render :partial => "comentarios/comentario", :collection => @post.comentarios.reverse %></td>
-	</tr>
-	<tr>
-		<td><hr /></td>
-	</tr>
+	<% if @post.comentarios.any? %>
+		<tr>
+			<td><h2>Comentarios</h2></td>
+		</tr>
+		<tr>
+			<td><%= render :partial => "comentarios/comentario", :collection => @post.comentarios.reverse %></td>
+		</tr>
+	<% end %>
 	<tr>
 		<td><h2>Add Comentario:</h2></td>
 	</tr>

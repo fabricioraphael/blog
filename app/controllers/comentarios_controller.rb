@@ -5,12 +5,11 @@ class ComentariosController < ApplicationController
   def create
      @post = Post.find params[:post_id]
      @comentario = @post.comentarios.create params[:comentario]
-     # @comentario = Comentario.find params[:comentario]
-     p "=============================== #{@comentario.corpo}"
+     @comentario.user = current_user
      if @comentario.save
        redirect_to :controller => :posts, :action => :show, :id => @post.id
      else
-       p "=================================================="
+       p "Imprimir msg de err 'Err ao salvar Comentario'"
      end
   end
 
