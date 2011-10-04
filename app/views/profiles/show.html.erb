@@ -7,7 +7,11 @@
 	<tr>
 		<th>E-mail: </th>
 		<td><%= @profile.user.email %></td>
-	</tr>	
+	</tr>
+	<tr>
+		<th>Empresa: </th>
+		<td><%= @profile.empresa %></td>
+	</tr>
 	<tr>
 		<th>Web-Site: </th>
 		<td><%= link_to "#{@profile.web_site}", '#' %></td>

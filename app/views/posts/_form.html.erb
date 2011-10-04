@@ -1,5 +1,9 @@
-<%= form_for @post, :url => {:action => action_name}, :id => :new_post do |p| %>
+<%= form_for (@post, :url => {:action => action_name}, :html => { :multipart => true }, :id => :new_post) do |p| %>
 	<table >
+		<tr>
+			<td><%= p.label "Img" %> </td>
+			<td><%= p.file_field :avatar, :id => "avatar" %> </td>
+		</tr>
 		<tr>
 		 	<td><%= p.label :titulo %></td>
 		 	<td><%= p.text_field :titulo, :id => "titulo" %></td>

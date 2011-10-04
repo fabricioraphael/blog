@@ -5,6 +5,8 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :nome
       t.date :nascimento
       t.string :endereco
+      t.integer :telefone
+      t.string :empresa
       t.string :web_site
       t.text :bio
 

@@ -8,7 +8,7 @@
 </head>
 <body>
 	<center>
-		<h1><%= link_to "Blog com Ruby on Rails", root_path %></h1>	
+		<h1><%= link_to "Blog em Ruby on Rails", root_path %></h1>	
 		<% if user_signed_in? and current_user.profile %>
 			<ul> 
 					Usuário: <%= link_to current_user.email, profile_path(current_user.profile.id) %> |

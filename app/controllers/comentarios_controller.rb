@@ -10,6 +10,7 @@ class ComentariosController < ApplicationController
        redirect_to :controller => :posts, :action => :show, :id => @post.id
      else
        p "Imprimir msg de err 'Err ao salvar Comentario'"
+       redirect_to :controller => :posts, :action => :show, :id => @post.id
      end
   end
 

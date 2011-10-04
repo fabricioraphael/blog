@@ -10,6 +10,10 @@ gem "devise", "~> 1.4.7"
 
 gem 'will_paginate', '~> 3.0.pre4'
 
+gem "brazilian-rails", "~> 3.0.4"
+
+gem "paperclip", "~> 2.3"
+
 gem 'pg'
 
 

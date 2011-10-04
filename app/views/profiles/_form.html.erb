@@ -3,16 +3,29 @@
 <%= form_for @profile, :url => {:action => action_name}, :id => :new_profile do |p| %>
 	<table>
 		<tr>
-	  	<td><%= p.label :nome %></td>
+	  	<td><%= p.label "#{:nome} *"  %></td>
 	  	<td><%= p.text_field :nome %></td>
 		</tr>
 		<tr>
-	  	<td><%= p.label :nascimento %></td>
-	 		<td><%= p.text_field :nascimento %></td>
+			<td><%= p.label :nascimento %></td>
+			<% unless params[:profile].nil? %>
+	 			<td><%= p.text_field :nascimento, :size => 11, :id => "nascimento", :value => 	
+						apresenta_data_formatada(params[:profile][:nascimento],@profile.nascimento)%></td>
+			<% else %>
+	 			<td><%= p.text_field :nascimento, :size => 11, :id => "nascimento", :value => apresenta_data_formatada("", @profile.nascimento)%></td>			
+			<% end %>
 		</tr>
 		<tr>
 	  	<td><%= p.label :endereco %></td>
 	  	<td><%= p.text_field :endereco %></td>
+		</tr>
+		<tr>
+	  	<td><%= p.label :telefone %></td>
+	  	<td><%= p.text_field :telefone,  :size => 11, :id => "telefone" %></td>
+		</tr>
+		<tr>
+	  	<td><%= p.label :empresa %></td>
+	  	<td><%= p.text_field :empresa %></td>
 		</tr>
 		<tr>
 	  	<td><%= p.label :web_site %></td>
