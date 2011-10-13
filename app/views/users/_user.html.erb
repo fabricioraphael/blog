@@ -1,4 +1,10 @@
 <tr>
-	<td><%= user.email %></td>
+	<td><%= link_to user.email, profile_path(user.profile.id) %></td>
+	<td><%= user.profile.nome %></td>
+	<td><%= user.profile.nascimento %></td>
+	<td><%= user.profile.endereco %></td>	
+	<td><%= user.profile.empresa %></td>
+	<td><%= user.role %></td>
+	<td><%= formatar_data(user.created_at) %></td>
 	<td><%= link_to "Editar", edit_user_path(user.id) %> 
 </tr>

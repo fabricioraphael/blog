@@ -5,8 +5,8 @@ Blog::Application.routes.draw do
   
   resources :users
   resources :profiles
-  resources :posts, :except => [:index]
+  resources :posts
   resources :comentarios
   
-  root :to => "home#index"
+  root :to => "posts#index"
 end

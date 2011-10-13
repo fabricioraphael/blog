@@ -1,0 +1,12 @@
+<%= stylesheet_link_tag :all %>
+
+<% unless @posts.nil? %>
+<table>
+	<tr>
+		<td><%= render :partial => "post", :collection => @posts %></td>
+	</tr>
+	<tr>
+		<td><%= will_paginate @posts %></td>
+	</tr>
+</table>
+<% end %>

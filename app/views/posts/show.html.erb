@@ -1,7 +1,9 @@
 <table>
-	<tr>
-		<td><h2><%= image_tag @post.avatar.url(:medium) %></h2></td>
-	</tr>
+	<% if @post.avatar.present? %>
+		<tr>
+			<td><h2><%= image_tag @post.avatar.url(:medium) %></h2></td>
+		</tr>
+	<% end %>
 	<tr>
 		<td><h2><%= @post.titulo %></h2></td>
 	</tr>	
@@ -11,9 +13,9 @@
 	<tr>
 		<% if @post.user %>
 			<% unless @post.user.profile.nil? %>
-			<td><i>Autor: <%= link_to "#{@post.user.profile.nome}", profile_path(@post.user.profile.id) %> <%=" - Data: #{@post.created_at}" %></i></td>
+			<td><i>Autor: <%= link_to "#{@post.user.profile.nome}", profile_path(@post.user.profile.id) %> <%=" - Data: #{formatar_data(@post.created_at)}" %></i></td>
 			<% else %>
-				<td><i><%= "Autor: Não Identificado - Data: #{@post.created_at}" %></i></td>
+				<td><i><%= "Autor: Não Identificado - Data: #{formatar_data(@post.created_at)}" %></i></td>
 			<% end %>
 		<% end %>
 	</tr>	
@@ -41,5 +43,11 @@
 	</tr>
 	<tr>
 		<td><%= render :partial => "comentarios/form", :locals => {:action_name => :create, :submit_name => "Comentar", :post_id => @post.id} %><td>
+	</tr>
+	
+	<tr>
+		<% if can? :update, @post %>
+			<td><h2>Pode atualizar</h2></td>
+		<% end %>
 	</tr>
 </table>

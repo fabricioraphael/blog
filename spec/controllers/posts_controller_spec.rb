@@ -16,7 +16,7 @@ describe PostsController do
   it "deveria criar um post" do
     post :create, :post => {:titulo => "Titulo", :corpo => "Corpo do post"}
     # should respond_with :redirect
-    should redirect_to :controller => :home, :action => :index
+    should redirect_to :action => :index
         
     assigns(:post).errors.should be_blank
   end
@@ -26,6 +26,12 @@ describe PostsController do
      response.should render_template(:new)
      
      assigns(:post).errors.should_not be_nil
+   end
+   
+   it "deveria apresentar a listagem de usuários" do
+     get :index
+     response.should be_success
+     assigns(:posts).should_not be_nil
    end
   
   it "deveria apresentar show de post" do
@@ -42,12 +48,12 @@ describe PostsController do
   end
   
   it "deveria alterar um post" do
-        put :update, :post => {:titulo => "Titulo"}, :id => @post.id
-        # should respond_with :redirect
-        should redirect_to :controller => :home, :action => :index
-        
-        assigns(:post).titulo.should == "Titulo"
-    end 
+    put :update, :post => {:titulo => "Titulo"}, :id => @post.id
+    # should respond_with :redirect
+    should redirect_to :action => :index
+    
+    assigns(:post).titulo.should == "Titulo"
+  end 
      
    it "deveria renderizar a tela de edit quando acontecer erro" do
      put :update, :post => {:titulo => ""}, :id => @post.id
@@ -60,11 +66,9 @@ describe PostsController do
     pending
     3.times { Post.create(:titulo => "Titulo", :corpo => "Corpo do post") }
     Post.all.size.should eql(4)
-    p " 1===============1 #{Post.all}"
     post :destroy, :id => @post.id
-    # should respond_with :redirect
-    p "2=============== 2#{Post.all}"
-    should redirect_to :controller => :home, :action => :index
+    
+    should redirect_to :action => :index
 
     Post.all.size.should eql(3)
   end

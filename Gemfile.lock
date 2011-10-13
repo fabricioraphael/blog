@@ -61,6 +61,7 @@ GEM
     brstring (3.0.4)
       activesupport (>= 3.0.0)
     builder (2.1.2)
+    cancan (1.6.7)
     cocaine (0.2.0)
     devise (1.4.7)
       bcrypt-ruby (~> 3.0)
@@ -105,6 +106,7 @@ GEM
       thor (~> 0.14.4)
     rake (0.9.2)
     rdoc (3.9.4)
+    role_model (0.7.0)
     rspec (2.4.0)
       rspec-core (~> 2.4.0)
       rspec-expectations (~> 2.4.0)
@@ -132,9 +134,11 @@ PLATFORMS
 
 DEPENDENCIES
   brazilian-rails (~> 3.0.4)
+  cancan (~> 1.6.7)
   devise (~> 1.4.7)
   paperclip (~> 2.3)
   pg
   rails (= 3.0.9)
+  role_model (~> 0.7.0)
   rspec-rails (~> 2.4.0)
   will_paginate (~> 3.0.pre4)

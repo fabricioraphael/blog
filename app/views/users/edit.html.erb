@@ -1,8 +1,10 @@
+<center>
 <h1>Alterar Dados de Usuários</h1>
 
 <%= form_for(@user, :url => {:action => :update}) do |f| %>
 	
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email %></div>
+  <div><%= f.label :role %><br />
+	<%= f.select :role, options_for_select(roles, :selected => @user.role)%><br/><br/>
 	<div><%= f.submit "Atualizar" %></div>
 <% end %>
+</center>

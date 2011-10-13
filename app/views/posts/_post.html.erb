@@ -1,0 +1,17 @@
+<tr>
+	<td><h2><%= link_to post.titulo, post_path(post.id)%></h2></td>
+</tr>	
+<tr>
+	<td><%= post.corpo %></td>
+</tr>	
+<tr><td><br /></td></tr>
+<tr>
+		<% if post.user %>
+			<% unless post.user.profile.nil? %>
+				<td><i>Autor: <%= link_to "#{post.user.profile.nome}", profile_path(post.user.profile.id) %> <%=" - Data: #{formatar_data(post.created_at)}" %></i></td>
+			<% else %>
+				<td><%= "Autor: Não Identificado - Data: #{formatar_data(post.created_at)}" %></td>
+			<% end %>
+		<% end %>
+</tr>
+<tr><td><hr /></td></tr>

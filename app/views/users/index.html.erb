@@ -1,12 +1,18 @@
-<h1>User</h1> <%= link_to "Novo Usuario PROVISORIO", new_user_path %>
+<center>
+	<h1>Usuários</h1>
 
-<% unless @users.nil? %>
-	<table class="tabela_padrao">
-		<tr>
-			<th>E-mail</th>
-			<th>Empresa</th>
-			<th></th>
-		</tr>
-		<%= render :partial => "user", :collection => @users.reverse %>		
-	</table>
-<% end %>
+	<% unless @users.nil? %>
+		<table>
+			<tr>
+				<th>E-mail</th>
+				<th>Nome</th>
+				<th>Nascimento</th>
+				<th>Endereço</th>
+				<th>Empresa</th>
+				<th>Conta</th>			
+				<th>Criado Em</th>
+			</tr>
+			<%= render :partial => "user", :collection => @users %>		
+		</table>
+	<% end %>
+</center>

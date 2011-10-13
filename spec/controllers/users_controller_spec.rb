@@ -13,11 +13,10 @@ describe UsersController do
     end
 
     it "deveria criar um user" do
-      pending
-      post :create, :user => {:email => "user@usuarios.com.br", :password => "123456"}
-      should redirect_to :controller => :profiles, :action => :create
+      post :create, :user => {:email => 'fabricioraphael.b@gmail.com', :password => '123456'}
+      should redirect_to :controller => :profiles, :action => :new
 
-      # assigns(:user).should_not be_nil
+      assigns(:user).should_not be_nil
       assigns(:user).errors.should be_blank
     end
 
@@ -28,11 +27,11 @@ describe UsersController do
       assigns(:user).errors.should_not be_nil
     end
  
-    # it "deveria apresentar a listagem de usuários" do
-    #   get :index
-    #   response.should be_success
-    #   assigns(:users).should_not be_nil
-    # end
+    it "deveria apresentar a listagem de usuários" do
+      get :index
+      response.should be_success
+      assigns(:users).should_not be_nil
+    end
  
     it "deveria mostrar a tela de edição de usuários" do
       get :edit, :id => @user.id
@@ -43,7 +42,7 @@ describe UsersController do
     it "deveria alterar um usuários" do
       put :update, :user => {:email => "user@alterado.com.br"}, :id => @user.id
       # should respond_with :redirect
-      should redirect_to :controller => :home, :action => :index
+      should redirect_to :action => :index
   
       assigns(:user).email.should == 'user@alterado.com.br'
     end

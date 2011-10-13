@@ -8,6 +8,12 @@ end
 
 gem "devise", "~> 1.4.7"
 
+gem "cancan", "~> 1.6.7"
+
+gem "cancan", "~> 1.6.7"
+
+gem "role_model", "~> 0.7.0"
+
 gem 'will_paginate', '~> 3.0.pre4'
 
 gem "brazilian-rails", "~> 3.0.4"

@@ -46,4 +46,23 @@ Blog::Application.configure do
 
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
+  
+  #============================ E-mail ===========================
+  config.action_mailer.delivery_method = :smtp
+
+  config.action_mailer.smtp_settings = {
+
+    :enable_starttls_auto => true,
+
+    :authentication       => :plain,
+
+    :address              => “smtp.gmail.com”,
+
+    :port                 => 587,
+
+    :user_name            => ‘fabricioraphael.b@gmail.com’,
+
+    :password             => ‘’,
+
+  }
 end

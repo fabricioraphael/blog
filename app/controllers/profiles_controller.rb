@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
     
     if @profile.save
       current_user.profile = @profile
-      redirect_to :controller => :home, :action => :index
+      redirect_to :controller => :posts, :action => :index
     else
       render :action => :new
     end
@@ -27,7 +27,7 @@ class ProfilesController < ApplicationController
   def update
     @profile = Profile.find params[:id]
     if @profile.update_attributes params[:profile]
-      redirect_to :controller => :home, :action => :index
+      redirect_to :controller => :posts, :action => :index
     else
       render :action => :edit
     end
